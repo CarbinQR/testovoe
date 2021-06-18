@@ -4,11 +4,9 @@ namespace src\Models;
 
 class Percents
 {
-    private array $percents;
-
-    public function fetchAllPercents(): void
+    public function fetchAllPercents(): array
     {
-        $percentsList = [
+        return [
             [
                 'id' => 1,
                 'percent' => 2.1
@@ -26,17 +24,17 @@ class Percents
                 'percent' => 5
             ]
         ];
-
-        $this->setPercents($percentsList);
     }
 
-    public function setPercents($list)
+    public function showPercent($param)
     {
-        $this->percents = $list;
-    }
+        $percentsList = $this->fetchAllPercents();
 
-    public function getPercents(): array
-    {
-        return $this->percents;
+        foreach ($percentsList as $value) {
+            if ($value['id'] == $param) {
+
+                return $value['percent'];
+            }
+        }
     }
 }

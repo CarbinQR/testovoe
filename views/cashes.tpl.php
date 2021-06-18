@@ -3,8 +3,6 @@
 header("Content-Type: application/json");
 
 /** @var array $data */
-$data = $data['cashesList'];
+$cashesList = $data['cashesList'];
 
-$json = json_encode($data);
-
-echo $json;
+echo json_encode($cashesList);

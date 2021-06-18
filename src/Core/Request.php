@@ -6,6 +6,7 @@ class Request
 {
     private string $controller = 'Index';
     private string $method = 'index';
+    private string $param;
 
     public function __construct()
     {
@@ -13,13 +14,18 @@ class Request
         $uri = array_diff($uri, []);
 
         // controller
-        if (isset($uri[1]) && !empty($uri[1])) {
-            $this->controller = ucfirst($uri[1]);
+        if (isset($uri[1]) && !empty($uri[2])) {
+            $this->controller = ucfirst($uri[2]);
         }
 
         // method
-        if (isset($uri[2])) {
-            $this->method = $uri[2];
+        if (isset($uri[3])) {
+            $this->method = $uri[3];
+        }
+
+        //param
+        if (isset($uri[4])) {
+            $this->param = $uri[4];
         }
     }
 
@@ -48,5 +54,10 @@ class Request
     public function getMethod(): string
     {
         return $this->method;
+    }
+
+    public function getParam(): string
+    {
+        return $this->param;
     }
 }

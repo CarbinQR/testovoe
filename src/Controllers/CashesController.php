@@ -10,8 +10,7 @@ class CashesController
     public function all()
     {
         $all = new Cashes;
-        $all->fetchAllCashes();
-        $cashesList = $all->getCashes();
+        $cashesList = $all->fetchAllCashes();
 
         return View::render('cashes', compact('cashesList'));
     }

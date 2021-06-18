@@ -3,9 +3,9 @@
 header("Content-Type: application/json");
 
 /** @var array $data */
-$data = $data['percentsList'];
+$percentList = $data['data'];
 
-$json = json_encode($data);
+$json = json_encode($percentList);
 
 echo $json;
 

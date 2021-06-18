@@ -7,12 +7,20 @@ use src\Models\Percents;
 
 class PercentsController
 {
-    public function all()
+    public function all(): array
     {
         $all = new Percents;
-        $all->fetchAllPercents();
-        $percentsList = $all->getPercents();
+        $data = $all->fetchAllPercents();
 
-        return View::render('percents', compact('percentsList'));
+        return View::render('percents', compact('data'));
+    }
+
+
+    public function show($param)
+    {
+        $percents = new Percents;
+        $data = $percents->showPercent($param);
+
+        return View::render('percents', compact('data'));
     }
 }

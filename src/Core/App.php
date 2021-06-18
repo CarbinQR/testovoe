@@ -16,10 +16,10 @@ class App
 
         $controllerName = $request->getController();
         $method = $request->getMethod();
+        $param = $request->getParam();
 
 
         $controller = new $controllerName;
-
-        $controller->$method();
+        $controller->$method($param);
     }
 }

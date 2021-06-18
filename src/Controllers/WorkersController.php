@@ -7,12 +7,18 @@ use src\Core\View;
 
 class WorkersController
 {
-    public function all()
+    public function all(): array
     {
         $all = new Workers;
-        $all->fetchAllWorkers();
-        $workersList = $all->getWorkers();
+        $workersList = $all->fetchAllWorkers();
 
         return View::render('workers', compact('workersList'));
+    }
+
+    public function show($param) {
+        $worker = new Workers;
+        $data = $worker->showWorker($param);
+
+        return View::render('percents', compact('data'));
     }
 }
